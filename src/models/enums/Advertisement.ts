@@ -4,6 +4,10 @@ export enum Advertisement {
   Premium = 'Premium',
 }
 
+/**
+ * @param type the Advertisement type that used for searching price
+ * @returns the default price of the advertisement
+ */
 export const getAdPrice = (type: Advertisement): number => {
   switch (type) {
     case Advertisement.Classic:

@@ -38,7 +38,7 @@ export default class PricingRule {
         `the advertisement type ${discount.type} has existed in this pricing rule`,
       );
     }
-    if (!discount.quantityDiscount === !discount.priceDiscount) {
+    if (!!discount.quantityDiscount === !!discount.priceDiscount) {
       throw new Error('must set either quantityDiscount or priceDiscount');
     }
     if (
