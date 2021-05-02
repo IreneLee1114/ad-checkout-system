@@ -2,6 +2,8 @@
   "extends": "./tsconfig.json",
   "compilerOptions": {
     "rootDir": ".",
+    "module": "commonjs",
+    "esModuleInterop": true,
     "outDir": "build",
     "removeComments": true
   },

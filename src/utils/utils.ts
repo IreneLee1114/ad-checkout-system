@@ -3,7 +3,7 @@ import { Discount } from '../models/PricingRule';
 
 /**
  * @param itemCount the total number of the advertisement
- * @param originalPrice the original price of the advertisement
+ * @param discount the discount object of the advertisement
  * @returns the total price of the a specific type of advertisements
  */
 export const getPriceDiscountedPrice = (
@@ -15,7 +15,6 @@ export const getPriceDiscountedPrice = (
 
 /**
  * @param itemCount the total number of the advertisement
- * @param originalPrice the original price of the advertisement
  * @param discount the discount object of the advertisement
  * @returns the total price of the a specific type of advertisements
  */
