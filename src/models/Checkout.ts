@@ -8,9 +8,9 @@ export default class Checkout {
   private constructor(pricingRule: PricingRule) {
     this.#pricingRule = pricingRule;
     this.#items = [];
-  };
+  }
 
-  static new (pricingRule: PricingRule): Checkout {
+  static new(pricingRule: PricingRule): Checkout {
     return new Checkout(pricingRule);
   }
 

@@ -29,8 +29,6 @@ function delayedHello(
 // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 export async function greeter(name: string) {
   console.log('hello');
-  const a = 'b';
-  const b = 'a';
   return await delayedHello(name, Delays.Long);
 }
 
