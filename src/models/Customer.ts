@@ -1,6 +1,6 @@
 import PricingRule from './PricingRule';
 
-export class Customer {
+export default class Customer {
   name: string;
   pricingRule: PricingRule;
 
@@ -8,6 +8,7 @@ export class Customer {
     this.name = name;
     this.pricingRule = pricingRule;
   }
+
   static new(name: string, pricingRule?: PricingRule): Customer {
     return new Customer(name, pricingRule);
   }

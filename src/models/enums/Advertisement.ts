@@ -1,5 +1,16 @@
 export enum Advertisement {
-  CLASSIC = 269.99,
-  STAND_OUT = 322.99,
-  PREMIUM = 394.99,
+  Classic = 'Classic',
+  StandOut = 'StandOut',
+  Premium = 'Premium',
 }
+
+export const getAdPrice = (type: Advertisement): number => {
+  switch (type) {
+    case Advertisement.Classic:
+      return 269.99;
+    case Advertisement.StandOut:
+      return 322.99;
+    case Advertisement.Premium:
+      return 394.99;
+  }
+};

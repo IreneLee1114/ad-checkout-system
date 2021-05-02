@@ -1,4 +1,4 @@
-import { Advertisement } from './enums/Advertisement';
+import { Advertisement, getAdPrice } from './enums/Advertisement';
 
 export interface QuantityDiscount {
   getQuantity: number;
@@ -16,15 +16,35 @@ export interface Discount {
 export default class PricingRule {
   discounts: Array<Discount>;
 
-  constructor() {
+  private constructor() {
     this.discounts = [];
   }
 
+  static new(discounts?: Array<Discount>): PricingRule {
+    const pricingRule = new PricingRule();
+    if (discounts) {
+      discounts.forEach((discount) => pricingRule.addDiscount(discount));
+    }
+    return pricingRule;
+  }
+
   addDiscount(discount: Discount): void {
+    if (
+      this.discounts.find(
+        (existDiscount) => existDiscount.type === discount.type,
+      )
+    ) {
+      throw new Error(
+        `the advertisement type ${discount.type} has existed in this pricing rule`,
+      );
+    }
     if (!discount.quantityDiscount === !discount.priceDiscount) {
       throw new Error('must set either quantityDiscount or priceDiscount');
     }
-    if (discount.priceDiscount && discount.type <= discount.priceDiscount) {
+    if (
+      discount.priceDiscount &&
+      getAdPrice(discount.type) <= discount.priceDiscount
+    ) {
       throw new Error('price discount should be lower than original price');
     } else if (discount.quantityDiscount) {
       const {
